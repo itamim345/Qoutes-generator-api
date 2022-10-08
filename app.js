@@ -1,7 +1,12 @@
 function getQoutes () {
     fetch('https://api.kanye.rest')
     .then (resp => resp.json())
-    .then (data => console.log(data))
+    .then (data => displayQoutes(data))
 }
-getQoutes()
 
+function displayQoutes(quote){
+    let quoteDiv = document.getElementById('single-quote');
+    quoteDiv.innerHTML = `<h3>"${quote.quote}"</h3>
+    <h6 class="text-end"><em>MyFAvQotes</em></h6>
+    <i class="text-danger">[ Tap on Get Qoutes Button to get more quotes...]</i>`
+}
